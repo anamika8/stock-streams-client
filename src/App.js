@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Search from "./Components/Search.jsx";
 import Feed from "./Components/Feed.jsx";
+import Counts from "./Components/Counts.jsx";
 
 import {
   Container,
@@ -32,6 +33,9 @@ export default function App() {
       <br />
 
       <Search callback={setData} />
+
+      <br />
+      <Counts data={data} />
 
       <br />
       <Container>
