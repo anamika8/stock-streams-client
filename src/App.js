@@ -3,15 +3,7 @@ import Search from "./Components/Search.jsx";
 import Feed from "./Components/Feed.jsx";
 import Counts from "./Components/Counts.jsx";
 
-import {
-  Container,
-  Col,
-  Row,
-  Navbar,
-  Form,
-  FormControl,
-  Button
-} from "react-bootstrap";
+import { Container, Col, Row, Navbar } from "react-bootstrap";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -32,7 +24,7 @@ export default function App() {
       </Navbar>
       <br />
 
-      <Search callback={setData} />
+      <Search searchItem={setData} />
 
       <br />
       <Counts data={data} />

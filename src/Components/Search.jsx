@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, FormLabel } from "react-bootstrap";
 //import Symbol from './Symbol.jsx'
-export default function Search({ callback }) {
+export default function Search({ searchItem }) {
   const [search, setSearch] = useState("");
 
   async function getTweets(symbol) {
@@ -17,9 +17,13 @@ export default function Search({ callback }) {
     return response;
   }
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    const rawSearch = new FormData(evt.target);
+  const handleSearch = event => {
+    setSearch(event.target.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const rawSearch = new FormData(event.target);
 
     // separate stock terms from search form
     const splitSearch = rawSearch
@@ -29,15 +33,6 @@ export default function Search({ callback }) {
 
     // call api for each search term
     const allTweets = [];
-
-    /*
-    useEffect(() => {
-      const intervalId = setTimeout(() => {
-        setData(data);
-        setSearch(e.target.value)
-      }, 1000);
-      return () => clearTimeout(intervalId);
-    }, []);*/
 
     Promise.all(splitSearch.map(stock => getTweets(stock)))
       .then(responses => Promise.all(responses.map(res => res.json())))
@@ -54,10 +49,19 @@ export default function Search({ callback }) {
               allTweets.push(message);
             });
           });
-          callback(allTweets);
+          searchItem(allTweets);
         }
       });
   };
+
+  /* useEffect(() => {
+    const intervalId = setTimeout(() => {
+      //setData(data);
+      //setSearch(e.target.value);
+      handleSearch();
+    }, 1000);
+    return () => clearTimeout(intervalId);
+  }, []);*/
 
   return (
     <Form inline className="justify-content-center" onSubmit={handleSubmit}>
@@ -66,7 +70,8 @@ export default function Search({ callback }) {
         type="text"
         placeholder="Search"
         className=" mr-sm-2"
-        onChange={e => setSearch(e.target.value)}
+        value={search}
+        onChange={handleSearch}
       />
       <Button type="submit">SEARCH</Button>
     </Form>
