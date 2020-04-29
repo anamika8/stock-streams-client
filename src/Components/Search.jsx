@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, FormLabel } from "react-bootstrap";
 //import Symbol from './Symbol.jsx'
 export default function Search({ callback }) {
@@ -29,6 +29,15 @@ export default function Search({ callback }) {
 
     // call api for each search term
     const allTweets = [];
+
+    /*
+    useEffect(() => {
+      const intervalId = setTimeout(() => {
+        setData(data);
+        setSearch(e.target.value)
+      }, 1000);
+      return () => clearTimeout(intervalId);
+    }, []);*/
 
     Promise.all(splitSearch.map(stock => getTweets(stock)))
       .then(responses => Promise.all(responses.map(res => res.json())))

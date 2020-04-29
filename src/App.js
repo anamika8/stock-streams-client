@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./Components/Search.jsx";
 import Feed from "./Components/Feed.jsx";
 import Counts from "./Components/Counts.jsx";
@@ -17,7 +17,7 @@ export default function App() {
   const [data, setData] = useState([]);
 
   return (
-    <>
+    <div>
       <Navbar className="justify-content-center" bg="primary" variant="dark">
         <Navbar.Brand href="#home">
           <img
@@ -46,6 +46,6 @@ export default function App() {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }
