@@ -30,7 +30,16 @@ export default function App() {
       <Container>
         <Row>
           <Col>
-            {data.length == 0 ? <h3>Search for a stock or two!</h3> : <></>}
+            {data.length == 0 ? (
+              <img
+                src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png"
+                //src="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg"
+                alt=""
+                className="img-fluid"
+              />
+            ) : (
+              <></>
+            )}
             <Feed data={data} />
           </Col>
         </Row>
