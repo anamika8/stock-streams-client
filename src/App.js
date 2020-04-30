@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Components/Search.jsx";
 import Feed from "./Components/Feed.jsx";
-import Counts from "./Components/Counts.jsx";
+import Count from "./Components/Count.jsx";
 
 import { Container, Col, Row, Navbar } from "react-bootstrap";
 
@@ -23,12 +23,9 @@ export default function App() {
         </Navbar.Brand>
       </Navbar>
       <br />
-
       <Search searchItem={setData} />
-
       <br />
-      <Counts data={data} />
-
+      <Count data={data} />
       <br />
       <Container>
         <Row>

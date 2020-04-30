@@ -4,19 +4,6 @@ import { Form, Button, FormLabel } from "react-bootstrap";
 export default function Search({ searchItem }) {
   const [search, setSearch] = useState("");
 
-  async function getTweets(symbol) {
-    const url = `http://localhost:9000/${symbol}`;
-    const response = await fetch(url, {
-      method: "GET",
-      //mode: 'cors', // no-cors, *cors, same-origin
-      cache: "no-cache",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    return response;
-  }
-
   const handleSearch = event => {
     setSearch(event.target.value);
   };
@@ -34,7 +21,11 @@ export default function Search({ searchItem }) {
     // call api for each search term
     const allTweets = [];
 
-    Promise.all(splitSearch.map(stock => getTweets(stock)))
+    Promise.all(
+      splitSearch.map(stock =>
+        fetch(`https://stock-streams-api-v1.herokuapp.com/${stock}`)
+      )
+    )
       .then(responses => Promise.all(responses.map(res => res.json())))
       .then(data => {
         console.log(data);
