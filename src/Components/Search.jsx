@@ -3,20 +3,30 @@ import { Form, Button, FormLabel } from "react-bootstrap";
 //import Symbol from './Symbol.jsx'
 export default function Search({ searchItem }) {
   const [search, setSearch] = useState("");
+  const [searchCount, setSearchCount] = useState(1);
 
   const handleSearch = event => {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const rawSearch = new FormData(event.target);
+  const triggerSearch = () => {
+    callTweetsApi(search);
+  };
 
+  useEffect(() => {
+    if (searchCount > 0) {
+      const intervalId = setTimeout(() => {
+        triggerSearch();
+        setSearchCount(count => count + 1);
+      }, 5000);
+      return () => clearTimeout(intervalId);
+    }
+  }, [searchCount]);
+
+  const callTweetsApi = allSearchItems => {
+    console.log(`Triggering search for stock items: ${search}`);
     // separate stock terms from search form
-    const splitSearch = rawSearch
-      .get("stock-symbol")
-      .replace(/\s/g, "")
-      .split(",");
+    const splitSearch = allSearchItems.replace(/\s/g, "").split(",");
 
     // call api for each search term
     const allTweets = [];
@@ -34,7 +44,6 @@ export default function Search({ searchItem }) {
         } else {
           data.forEach(search => {
             const searchSymbol = search.symbol.symbol;
-            console.log(`searchSymbol = ${searchSymbol}`);
             search.messages.forEach(message => {
               message.symbol = searchSymbol;
               allTweets.push(message);
@@ -45,21 +54,19 @@ export default function Search({ searchItem }) {
       });
   };
 
-  /* useEffect(() => {
-    const intervalId = setTimeout(() => {
-      //setData(data);
-      //setSearch(e.target.value);
-      handleSearch();
-    }, 1000);
-    return () => clearTimeout(intervalId);
-  }, []);*/
+  const handleSubmit = event => {
+    event.preventDefault();
+    const rawSearch = new FormData(event.target);
+    const allSearchItems = rawSearch.get("stock-symbol");
+    callTweetsApi(allSearchItems);
+  };
 
   return (
     <Form inline className="justify-content-center" onSubmit={handleSubmit}>
       <Form.Control
         name="stock-symbol"
         type="text"
-        placeholder="Search"
+        placeholder="Search ex: WMT, AMZN"
         className=" mr-sm-2"
         value={search}
         onChange={handleSearch}
