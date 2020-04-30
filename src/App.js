@@ -32,15 +32,14 @@ export default function App() {
           <Col>
             {data.length == 0 ? (
               <img
-                src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png"
-                //src="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg"
-                alt=""
-                className="img-fluid"
+                src="https://www.belltraininggroup.com.au/wp-content/uploads/2017/02/Business_Success.jpg"
+                alt="Stock-exchange"
+                className="img-stock"
               />
             ) : (
               <></>
             )}
-            <Feed data={data} />
+            <Feed data={data}></Feed> />
           </Col>
         </Row>
       </Container>

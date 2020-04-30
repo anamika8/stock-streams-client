@@ -18,7 +18,7 @@ export default function Search({ searchItem }) {
       const intervalId = setTimeout(() => {
         triggerSearch();
         setSearchCount(count => count + 1);
-      }, 120000);
+      }, 250000);
       return () => clearTimeout(intervalId);
     }
   }, [searchCount]);
