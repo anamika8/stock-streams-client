@@ -5,7 +5,7 @@ export default function Search({ searchItem }) {
   const [search, setSearch] = useState("");
 
   async function getTweets(symbol) {
-    const url = `http://localhost:8080/${symbol}`;
+    const url = `http://localhost:9000/${symbol}`;
     const response = await fetch(url, {
       method: "GET",
       //mode: 'cors', // no-cors, *cors, same-origin
