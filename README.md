@@ -1,69 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Heroku URL : https://stock-streams-client.herokuapp.com/
 
-## Available Scripts
+# Stock Streams - App
 
-In the project directory, you can run:
+An utility app to help get a pulse of the most recent conversations happening around the world about a stock.
 
-### `npm start`
+## Background
+This app will help you understand what is happening around the stock(s) of your choice, by reading the latest tweets about it.
+This App comprises of the Frontend Part (available [here](https://stock-streams-client.herokuapp.com/)) which was bootstrapped using the [Create React App](https://github.com/facebook/create-react-app).
+It also has a backend part running on Node.js/ Express which the 'Stock Streams' app calls to retrieve the tweets.
+More information about the backend can be found [here](https://github.com/anamika8/stock-streams-api-v1)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Built With
+   <ul>
+     <li>React.js</li>
+     <li>React-Hooks</li>
+     <li>React-Bootstrap</li>
+     <li>HTML5</li>
+     <li>CSS</li>
+   </ul>
+   
+## Description
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Users in Mommy Talks, gets to share their experiences, ask new questions or get helpful suggestions in the form of new posts or comments to existing posts.
+Users can also search for topics they are interested in and view their associated content.
 
-### `npm test`
+### Usage
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<ul>
+  <li>Allow Users to search for tweets about a stock by providing its cashtag like AAPL (Apple), GOOG (Google), etc.</li>
+  <li>Allow Users to add more symbols in the search bar using comma</li>
+  <li>Displays new tweets without user intervention every 30 seconds, without the page getting refreshed</li>
+  <li>Provides the count of tweets associated with each symbol that is being displayed</li>
+  <li>Responsive design helps users to use the App from their phones or tablets</li>
+</ul>
 
-### `npm run build`
+Open the app <a href="https://stock-streams-client.herokuapp.com/" target="_blank">here</a>
+You will see a page like this:
+![Screenshot of landing page](screenshots/app.png "Mommy-Talks")
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
