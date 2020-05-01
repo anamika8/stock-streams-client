@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Search from "./Components/Search.jsx";
 import Feed from "./Components/Feed.jsx";
 import Count from "./Components/Count.jsx";
-//import "bootstrap/dist/css/bootstrap.min.css";
 import "./main.css";
 
 import { Container, Col, Row, Navbar } from "react-bootstrap";
@@ -12,7 +11,12 @@ export default function App() {
 
   return (
     <div>
-      <Navbar className="justify-content-center" bg="primary" variant="dark">
+      <Navbar
+        className="justify-content-center"
+        bg="primary"
+        variant="dark"
+        expand={"sm" | "md" | "lg" | "xl"}
+      >
         <Navbar.Brand href="#home">
           <img
             alt=""
