@@ -18,7 +18,7 @@ export default function Search({ searchItem }) {
       const intervalId = setTimeout(() => {
         triggerSearch();
         setSearchCount(count => count + 1);
-      }, 250000);
+      }, 30000);
       return () => clearTimeout(intervalId);
     }
   }, [searchCount]);
@@ -32,9 +32,9 @@ export default function Search({ searchItem }) {
     const allTweets = [];
 
     Promise.all(
-      splitSearch.map(stock =>
-        //fetch(`https://stock-streams-api-v1.herokuapp.com/${stock}`)
-        fetch(`http://localhost:9000/${stock}`)
+      splitSearch.map(
+        stock => fetch(`https://stock-streams-api-v1.herokuapp.com/${stock}`)
+        //fetch(`http://localhost:9000/${stock}`)
       )
     )
       .then(responses => Promise.all(responses.map(res => res.json())))
