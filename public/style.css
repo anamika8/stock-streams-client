@@ -1,13 +1,6 @@
-/*body {
-  background-image: url("./img/stocks-bk.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
+body * {
+  box-sizing: border-box;
+}
 
 #element1 {
   display: inline-block;
@@ -27,4 +20,27 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/*#datacontainer {
+  height: 100px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}*/
+
+@media (min-width: 768px) .container {
+  max-width: 720px;
+}
+
+@media (min-width: 576px) .container {
+  max-width: 540px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }

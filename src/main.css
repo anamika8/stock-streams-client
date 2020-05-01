@@ -1,0 +1,45 @@
+body * {
+  box-sizing: border-box;
+}
+
+#element1 {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-stock {
+  height: 45%;
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 380px) {
+  .img-stock {
+    height: 90%;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 414px) and (min-width: 400px) {
+  .img-stock {
+    height: 90%;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1030px) and (min-width: 765px) {
+  .img-stock {
+    height: 90%;
+    width: 90%;
+  }
+}
