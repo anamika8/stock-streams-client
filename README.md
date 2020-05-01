@@ -1,8 +1,8 @@
-Heroku URL : https://stock-streams-client.herokuapp.com/
+View Live at : https://stock-streams-client.herokuapp.com/
 
 # Stock Streams - App
 
-An utility app to help get a pulse of the most recent conversations happening around the world about a stock.
+An utility app to help get a pulse of the most recent conversations happening around the world about a stock. The tweets are automatically updated every 30 seconds.
 
 ## Background
 This app will help you understand what is happening around the stock(s) of your choice, by reading the latest tweets about it.
@@ -34,9 +34,9 @@ Users can also search for topics they are interested in and view their associate
   <li>Responsive design helps users to use the App from their phones or tablets</li>
 </ul>
 
-Open the app <a href="https://stock-streams-client.herokuapp.com/" target="_blank">here</a>
+Open the app <a href="https://stock-streams-client.herokuapp.com/" target="_blank">here</a> and search for one or more stocks (comma-separated) by clicking on the 'SEARCH' button or pressing Enter/ Return.
 You will see a page like this:
-![Screenshot of landing page](screenshots/app.png "Mommy-Talks")
+![Screenshot of landing page](stock-streams.png "Stock-Streams")
 
 
 
