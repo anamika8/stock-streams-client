@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Search from "./Components/Search.jsx";
 import Feed from "./Components/Feed.jsx";
 import Count from "./Components/Count.jsx";
 import "./main.css";
 
-import { Container, Col, Row, Navbar } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
+// holds the entire app in one place
 export default function App() {
   const [data, setData] = useState([]);
 
@@ -34,7 +35,7 @@ export default function App() {
       <Count data={data} />
       <br />
 
-      {data.length == 0 ? (
+      {data.length === 0 ? (
         <img
           src="https://www.belltraininggroup.com.au/wp-content/uploads/2017/02/Business_Success.jpg"
           alt="Stock-exchange"

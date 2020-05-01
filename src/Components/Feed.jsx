@@ -1,8 +1,9 @@
 import React from "react";
 import Tweet from "./Tweet.jsx";
-import { Container, Col, Row, Card } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// helps capture the list of tweets and display them in row format
 export default function Feed({ data }) {
   // sort by created_at date in stocktwits system
   const sortedData = data.sort(

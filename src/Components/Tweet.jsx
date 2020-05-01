@@ -1,9 +1,9 @@
 import React from "react";
 import { Media } from "react-bootstrap";
 import Linkify from "react-linkify";
-//import CashtagLink from 'stocktwits-react-text-js'
 import ReactHtmlParser from "react-html-parser";
 
+// helps display the tweet, user's name, image and tweet time in local time
 export default function Tweet({ content }) {
   let tweetText = content.body;
   const variablesUsed = content.symbols.map(symbol => symbol.symbol);

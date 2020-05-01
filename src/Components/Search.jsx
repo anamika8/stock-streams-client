@@ -1,18 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, FormLabel } from "react-bootstrap";
-//import Symbol from './Symbol.jsx'
+import { Form, Button } from "react-bootstrap";
+
+// helps trigger the search and store all the searched items
 export default function Search({ searchItem }) {
+  // keeps the comma-separated stock symbols that have been searched
   const [search, setSearch] = useState("");
+  // used to keep a count of the number of times a search has been triggered
   const [searchCount, setSearchCount] = useState(1);
 
+  /**
+   * Method triggered with the search text box onChange event
+   * @param {*} event
+   */
   const handleSearch = event => {
     setSearch(event.target.value);
   };
 
+  /**
+   * Utility method for automatic search for new tweets with existing
+   * search terms.
+   */
   const triggerSearch = () => {
-    callTweetsApi(search);
+    if (search === "") {
+      console.log("No search items provided yet, hence not calling the API");
+    } else {
+      callTweetsApi(search);
+    }
   };
 
+  /**
+   * Here we want to fire off an automatic search after
+   * every 30 seconds
+   */
   useEffect(() => {
     if (searchCount > 0) {
       const intervalId = setTimeout(() => {
@@ -23,6 +42,14 @@ export default function Search({ searchItem }) {
     }
   }, [searchCount]);
 
+  /**
+   * The method from where the API call is made.
+   * The search items are split, stripped off white-spaces and are
+   * used for parallel calls. All responses are collected and sent back
+   * to the calling method as a callback.
+   *
+   * @param {*} allSearchItems -- comma-separated list of search items
+   */
   const callTweetsApi = allSearchItems => {
     console.log(`Triggering search for stock items: ${search}`);
     // separate stock terms from search form
@@ -55,6 +82,11 @@ export default function Search({ searchItem }) {
       });
   };
 
+  /**
+   * Method called when the search button is clicked or enter
+   * key is pressed.
+   * @param {*} event
+   */
   const handleSubmit = event => {
     event.preventDefault();
     const rawSearch = new FormData(event.target);
@@ -68,7 +100,7 @@ export default function Search({ searchItem }) {
         name="stock-symbol"
         type="text"
         placeholder="Search ex: WMT, AMZN"
-        className=" mr-sm-2"
+        className="wrapper mr-sm-2"
         value={search}
         onChange={handleSearch}
       />

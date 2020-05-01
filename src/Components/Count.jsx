@@ -1,6 +1,9 @@
 import React from "react";
 import SymbolCount from "./SymbolCount.jsx";
 
+// helps render the div to show the tweet count for every search symbol.
+// the tweet count associated with each symbol is counted here and
+// passed to the child component
 export default function Counts({ data }) {
   let symbolsArray = [];
   for (let i = 0; i < data.length; i++) {
