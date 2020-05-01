@@ -21,10 +21,10 @@ export default function Feed({ data }) {
     <Container>
       <Row>
         <Col
-          md={{ span: 5.5, offset: 0 }}
-          xs={{ span: 8, offset: 0 }}
-          sm={{ span: 8, offset: 0 }}
-          lg="auto"
+          md={{ span: 18, offset: 0 }}
+          xs={{ span: 18, offset: 0 }}
+          sm={{ span: 18, offset: 0 }}
+          lg={{ span: 18, offset: 0 }}
           xl="auto"
         >
           <ul style={feedStyling}>
