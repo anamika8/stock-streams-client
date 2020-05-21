@@ -26,8 +26,7 @@ More information about the backend can be found [here](https://github.com/anamik
    
 ## Description
 
-Users in Mommy Talks, gets to share their experiences, ask new questions or get helpful suggestions in the form of new posts or comments to existing posts.
-Users can also search for topics they are interested in and view their associated content.
+Users of this App, will get to see the latest tweets about their searched stock that continously refreshes every 30 seconds.
 
 ### Usage
 
